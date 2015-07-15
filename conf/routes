@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET    /                      controllers.Application.index()
+# Main Route For Swagger GUI
+GET    /swagger               controllers.Application.swagger
+
+GET    /api-docs.json/hello   controllers.ApiHelpController.getResource(path = "/hello")
+GET    /hello                 controllers.Hello.getHello()
+POST   /hello/:name           controllers.Hello.postHello(name:String)
+POST   /hello/upload/image    controllers.Hello.upload()
+
+#For Swagger Support
+GET    /api-docs.json         controllers.ApiHelpController.getResources
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file          controllers.Assets.at(path="/public", file)
